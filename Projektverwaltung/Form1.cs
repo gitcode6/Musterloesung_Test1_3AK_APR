@@ -39,26 +39,10 @@ namespace Projektverwaltung
 
         private void Sort()
         {
-            //Not macht erfinderisch ...
-
-            List<Projekt> projekte_liste = new List<Projekt>();
-
-            foreach (Projekt projekt in lstProjekte.Items)
-            {
-                projekte_liste.Add(projekt);
-            }
-
+            List<Projekt> projekte_liste = projekte.ToList<Projekt>();
             projekte_liste.Sort();
-
-            projekte.Clear();
-
-            foreach (Projekt projekt in projekte_liste)
-            {
-                projekte.Add(projekt);
-            }
-
-            lstProjekte.DataSource = null;
-            lstProjekte.DataSource = projekte_liste;
+            projekte = new BindingList<Projekt>(projekte_liste);
+            lstProjekte.DataSource = projekte;
         }
 
         private void Form1_Load(object sender, EventArgs e)

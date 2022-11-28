@@ -44,7 +44,7 @@ namespace Projektverwaltung
         {
             if(other.Projektgewinn > Projektgewinn)
             {
-                return 0;
+                return 1;
             }
 
             else
